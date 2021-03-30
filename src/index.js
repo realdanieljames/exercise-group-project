@@ -4,8 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import exerciseReducer from './store/reducers/ExerciseReducer'
+import foodReducer from './store/reducers/FoodReducer'
+import {combineReducers, createStore} from 'redux'
+import {Provider} from 'react-redux'
+
+
+const rootReducer = combineReducers({
+    food_reducer: foodReducer,
+    exercise_Reducer: exerciseReducer
+})
+
 ReactDOM.render(
-  <React.StrictMode>
+  <React.StrictMode Provider={rootReducer} >
     <App />
   </React.StrictMode>,
   document.getElementById('root')
