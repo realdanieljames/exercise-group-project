@@ -1,6 +1,8 @@
 const initialState ={
     food: [
-        {mealName: 'apple cheddar', id:'1234', calories: '24'}
+        {mealName: 'apple cheddar', id:'1234', calories: '24'},
+        {mealName: 'apple cheddar', id:'1234', calories: '24'},
+        {mealName: 'apple cheddar', id:'1234', calories: '24'},
     ]
 }
 
