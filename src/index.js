@@ -10,14 +10,17 @@ import {combineReducers, createStore} from 'redux'
 import {Provider} from 'react-redux'
 
 
+
 const rootReducer = combineReducers({
     food_reducer: foodReducer,
     exercise_Reducer: exerciseReducer
 })
 
+const store = createStore(rootReducer)
+
 ReactDOM.render(
   <React.StrictMode >
-    <Provider store={rootReducer}>
+    <Provider store={store}>
 
     <App />
     </Provider>
