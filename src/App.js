@@ -1,19 +1,21 @@
 import './App.css';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import MainPage from './components/MainPage/MainPage'
 import ExerciseCalories from './components/ExerciseCalories/ExerciseCalories'
+import Login from './components/Login/Login'
 
 function App() {
 
 
   return (
     <div className="App">
-      <BrowserRouter>
-      <MainPage  />
-
+      <Router>
+        <Route exact path='/' component={Login}/>
+      <Route exact path="/main-page" component={MainPage} />
+      <Route exact path="/exercise" component={ExerciseCalories} />
 
       
-      </BrowserRouter>
+      </Router>
 
 
     </div>
