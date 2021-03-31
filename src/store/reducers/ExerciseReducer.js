@@ -1,5 +1,6 @@
 const initialState = {
-    exercise: []
+    exercise: [],
+    calories: 0
 
 }
 
@@ -7,18 +8,19 @@ const exerciseReducer = (state=initialState, action) => {
     switch(action.type){
         case "ADD_NEW_EXERCISE":
           let newArr = [...state.exercise].concat([action.exercise])
-            newArr.push(action.exercise)
+           
             return {
                 
             ...state,
-            exercise: newArr
+            exercise: newArr,
+            calories: state.calories + Number(action.exercise.calories)
             
             
                
                 
             }
             ;
-        default : console.log(`Rubens State: ${state.exercise}`)
+        default : 
         return state
     }
 }

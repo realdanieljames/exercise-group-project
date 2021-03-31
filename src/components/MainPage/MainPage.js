@@ -1,13 +1,11 @@
 import React, {createRef, useRef} from "react";
 import { connect } from "react-redux";
 import './MainPage.css'
+import ExerciseCalories from '../../components/ExerciseCalories/ExerciseCalories'
 
 
 const MainPage = (props) => {
-
-
-const exerciseRef = createRef('')
-const exerciseCalorieRef = createRef('')
+    console.log(props);
 return (
     <div>
     <div>
@@ -16,43 +14,20 @@ return (
 
 
 {/* Exercise Component */}
-
-    <div style={{border: "1px solid black"}}>
-    <h2>Add Exercise</h2>
-    <div>
-        <input placeholder="Type Exercise Here" ref={exerciseRef} />
-        <input placeholder="Type Calories Here" ref={exerciseCalorieRef} />
-        <button onClick={() => props.addExercise(exerciseCalorieRef, exerciseRef)} >Add Exercise</button>
-        
-        {props.exercise.map((exercise,i) => {
-            return (
-                <div>
-                    <u>Exercise {i+1}</u><br></br>
-                    {exercise.name}<br></br>
-                    Calories: {exercise.calories}
-                </div>
-            )
-        })}
+        <ExerciseCalories
+         exerciseState={props.exercise} 
+         addExercise={props.addExercise}
+         calories={props.calories}
+          />
     </div>
-
-    </div>
-
-{/* Food Component */}
-<div style={{border: "1px solid black"}}>
-    <h2>Meals</h2>
-        {/* {props.food.map((value)=>{
-            console.log(value)
-        })} */}
-    </div>
-    
-    </div>
-);
-};
+)
+}
 
 const mapStateToProps = (state) => {
     return {
         food: state.food_Reducer.food,
-        exercise: state.exercise_Reducer.exercise
+        exercise: state.exercise_Reducer.exercise,
+        calories: state.exercise_Reducer.calories
         
     }
 }
