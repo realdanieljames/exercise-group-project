@@ -12,7 +12,7 @@ import {Provider} from 'react-redux'
 
 
 const rootReducer = combineReducers({
-    food_reducer: foodReducer,
+    food_Reducer: foodReducer,
     exercise_Reducer: exerciseReducer
 })
 
