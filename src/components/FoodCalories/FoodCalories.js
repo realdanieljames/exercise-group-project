@@ -1,25 +1,46 @@
-import React from 'react'
+import React,{useRef} from "react";
+import "./FoodCalories.css";
 
+
+//===========================================================================================//
+//===========================================================================================//
 const FoodCalories = (props) => {
-    console.log(props)
 
-        return (
-        <div>
 
-          
-            
-            <h1>Food With Calorie Intake</h1>
-            <div>
-            <input placeholder='Add Food'></input>
-            <input placeholder="Add Calories Amount"></input>
-            <button>Add Meal</button>
+const foodRef = useRef('');
+const foodCalorieRef = useRef('');
+
+
+//===========================================================================================//
+//===========================================================================================//
+console.log(foodCalorieRef.current)
+return (
+    <div>
+    <h1>Add Meals</h1>
+    <div>
+        <input placeholder="Add Food" ref={foodRef}/>
+        <input placeholder="Add Calories Amount" ref={foodCalorieRef}/>
+        <button onClick={()=> props.props.addFood(foodRef.current.value,foodCalorieRef.current.value) }>Add Meal</button>
+    </div>
+    <div>
+        Total Calorie Intake
+    </div>
+
+
+    <div className="meal-object">
+        {props.props.food.map((value) => {
+            return (
+                <div className="meal">
+            <p> Meal: {value.mealName}</p>
+            <p> Total Calories: {value.calories}</p>
             </div>
-            <h2>Total Calorie Intake:{props.mealCalories}</h2>
+        );
+    })}
+    </div>
+    </div>
+);
+};
+//===========================================================================================//
+//===========================================================================================//
 
-            {props.mealName}
-
-        </div>
-    )
-}
-
-export default FoodCalories
+export default FoodCalories;
