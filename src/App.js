@@ -4,6 +4,7 @@ import MainPage from "./components/MainPage/MainPage";
 import ExerciseCalories from "./components/ExerciseCalories/ExerciseCalories";
 import FoodCalories from "./components/FoodCalories/FoodCalories";
 import Login from "./components/Login/Login";
+import Register from './components/Register/Register'
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Route exact path="/main-page" component={MainPage} />
         <Route exact path="/exercise" component={ExerciseCalories} />
         <Route exact path="/food" component={FoodCalories} />
+        <Route exact path="/register" component={Register} />
+
       </Router>
     </div>
   );
