@@ -1,17 +1,43 @@
-import React from 'react'
+import React, {createRef} from 'react'
+import {withRouter} from 'react-router-dom'
+import { connect } from "react-redux";
+import "./Login.css"
+const Login = (props) => {
 
-const Login = () => {
+    const userNameRef = createRef()
+    const passwordRef = createRef()
+
+    const switchToRegisterPage = () => {
+        props.history.push("/register")
+    }
+console.log(props);
     return (
         <div>
 
-            <h1>Login </h1>
-            <h3> New to Calorie Tracker? Create an Account.</h3>
-
-            <input label="Email Address" placeholder="Enter your email address"/>
-            <input label="Password" placeholder="Enter your password"/>
-            <button>Log In</button>
+            <p>Login Page</p>
+            <input type='email'ref={userNameRef} placeholder="Email"/> <br></br>
+            <input type='Password' ref={passwordRef} placeholder="Password" /><br></br>
+            <button>Submit</button>
+            <p>Not Registered? Sign up <span onClick={switchToRegisterPage} className='register-click'>here</span></p>
         </div>
     )
 }
 
-export default Login
+
+const mapStateToProps = (state) => {
+    return {
+        // food: state.food_Reducer.food,
+        // exercise: state.exercise_Reducer.exercise,
+        // calories: state.exercise_Reducer.calories
+        
+    }
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login))
