@@ -43,10 +43,14 @@ return {
 
 const mapDispatchToProps = (dispatch) => {
 return {
-    addFood: (newMealName, newCalories) =>
+    addMeal: (newMealName, newCalories) =>
     dispatch({
         type: "ADD_NEW_FOOD",
-        newFood: { mealName: newMealName, id: "", calories: newCalories },
+        newFood: { mealName: newMealName, id: uuidv4(), calories: newCalories },
+    }),
+    editMeal:(targetID, newMealName, newCalories)=>dispatch({
+        type: "EDIT_MEAL_NAME",
+        editedMeal: {targetId: targetID, mealName:newMealName, calories: newCalories}
     }),
     addExercise: (exerciseCalorieRef, exerciseRef) =>
     dispatch({

@@ -1,12 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./FoodCalories.css";
 
 //===========================================================================================//
 //===========================================================================================//
 const FoodCalories = (props) => {
-const foodRef = useRef();
-const foodCalorieRef = useRef();
+const addMealRef = useRef();
+const addMealCaloriesRef = useRef();
 
+const editMealNameRef = useRef();
+const editMealCalorieRef = useRef();
+
+const [showEditField, setShowEditField] = useState(false);
 //===========================================================================================//
 //===========================================================================================//
 
@@ -14,13 +18,13 @@ return (
     <div>
     <h1>Add Meals</h1>
     <div className="add-meal-input-fields">
-        <input placeholder="Add Food" ref={foodRef} />
-        <input placeholder="Add Calories Amount" ref={foodCalorieRef} />
+        <input placeholder="Add Food" ref={addMealRef} />
+        <input placeholder="Add Calories Amount" ref={addMealCaloriesRef} />
         <button
         onClick={() =>
-            props.props.addFood(
-            foodRef.current.value,
-            foodCalorieRef.current.value
+            props.props.addMeal(
+            addMealRef.current.value,
+            addMealCaloriesRef.current.value
             )
         }
         >
@@ -29,17 +33,46 @@ return (
     </div>
     <h3>
         Total Calorie Intake:{props.props.food.totalCaloriesFromAddedFoods}
-    </h3>
 
+    </h3>
+{/*  //===========================================================================================//*/}
     <div className="meal-container">
         {props.props.food.food.map((value) => {
         return (
             <div className="meal">
-            <p> Meal: <br/>{value.mealName}</p>
-            <button>edit</button>
+            {showEditField ? (
+                <div>
+                <p>
+                    {" "}
+                    Meal: <br />
+                </p>
+                <input defaultValue={value.mealName} ref={editMealNameRef}/>
+                </div>
+            ) : (
+                <p>
+                {" "}
+                Meal: <br />
+                {value.mealName}
+                </p>
+            )}
 
-            <p> Total Calories: <br/>{value.calories}</p>
-            <button onClick={()=>console.log('rer')}>edit</button>
+            <button
+                onClick={() => {
+                setShowEditField(true);
+                props.props.editMeal();
+                }}
+            >
+                {showEditField ? "submit" : "edit"}
+                {/* edit */}
+            </button>
+{/*  //===========================================================================================//*/}
+            <p>
+                {" "}
+                Total Calories: <br />
+                {value.calories}
+            </p>
+            <input></input>
+            <button onClick={() => console.log("rere")}>edit</button>
             </div>
         );
         })}
