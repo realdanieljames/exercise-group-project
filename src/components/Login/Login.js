@@ -1,5 +1,6 @@
 import React, {createRef} from 'react'
 import {withRouter} from 'react-router-dom'
+import { connect } from "react-redux";
 import "./Login.css"
 const Login = (props) => {
 
@@ -22,4 +23,21 @@ console.log(props);
     )
 }
 
-export default withRouter(Login)
+
+const mapStateToProps = (state) => {
+    return {
+        // food: state.food_Reducer.food,
+        // exercise: state.exercise_Reducer.exercise,
+        // calories: state.exercise_Reducer.calories
+        
+    }
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login))

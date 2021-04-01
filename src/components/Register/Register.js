@@ -1,5 +1,6 @@
 import React, {createRef}  from 'react'
 import {withRouter} from 'react-router-dom'
+import { connect } from "react-redux";
 
 const Register = (props) => {
 
@@ -23,7 +24,23 @@ const Register = (props) => {
     )
 }
 
-export default withRouter(Register)
+const mapStateToProps = (state) => {
+    return {
+        // food: state.food_Reducer.food,
+        // exercise: state.exercise_Reducer.exercise,
+        // calories: state.exercise_Reducer.calories
+        
+    }
+}
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Register))
 
 
     

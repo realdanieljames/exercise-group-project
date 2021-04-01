@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 import exerciseReducer from './store/reducers/ExerciseReducer'
 import foodReducer from './store/reducers/FoodReducer'
+import loginReducer from './store/reducers/LoginReducer'
+import registerReducer from './store/reducers/RegisterReducer'
 import {combineReducers, createStore} from 'redux'
 import {Provider} from 'react-redux'
 
@@ -13,7 +15,9 @@ import {Provider} from 'react-redux'
 
 const rootReducer = combineReducers({
     food_Reducer: foodReducer,
-    exercise_Reducer: exerciseReducer
+    exercise_Reducer: exerciseReducer,
+    login_Reducer: loginReducer,
+    register_Reducer: registerReducer
 })
 
 const store = createStore(rootReducer)
