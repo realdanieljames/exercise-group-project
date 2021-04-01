@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./MainPage.css";
 import ExerciseCalories from "../../components/ExerciseCalories/ExerciseCalories";
 import FoodCalories from "../FoodCalories/FoodCalories";
+import { v4 as uuidv4 } from 'uuid'
 
 const MainPage = (props) => {
 console.log(props);
@@ -19,6 +20,8 @@ return (
         exerciseState={props.exercise}
         addExercise={props.addExercise}
         calories={props.calories}
+        editToggle={props.editToggle}
+        editExercise={props.editExercise}
         />
 
     {/* Food Component */}
@@ -38,6 +41,7 @@ return {
     food: state.food_Reducer.food,
     exercise: state.exercise_Reducer.exercise,
     calories: state.exercise_Reducer.calories,
+    editToggle: state.exercise_Reducer.editToggle,
 };
 };
 
@@ -58,6 +62,8 @@ return {
         calories: exerciseCalorieRef.current.value,
         },
     }),
+    editExercise:(targetID) => dispatch({type: "EDIT_EXERCISE", targetID: targetID})
+
 };
 };
 
