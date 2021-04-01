@@ -1,27 +1,27 @@
-const initialState ={
-    food: [
-        {mealName: 'apple cheddar', id:'1234', calories: '24'},
-        {mealName: 'apple cheddar', id:'1234', calories: '24'},
-        {mealName: 'apple cheddar', id:'1234', calories: '24'},
-    ]
-}
+const initialState = {
+  food: [],
+  totalCaloriesFromAddedFoods: 0
+};
 
+
+//===========================================================================================//
+//===========================================================================================//
 
 
 const foodReducer = (state = initialState, action) => {
 
-    console.log(state)
-    switch (action.type) {
-        case "ADD_NEW_FOOD":
-            return {
-                ...state,
-                food: [...state.food, action.newFood]
-            }
+  switch (action.type) {
+    case "ADD_NEW_FOOD":
+      return {
+        ...state,
+        food: [...state.food, action.newFood],
+        totalCaloriesFromAddedFoods: state.totalCaloriesFromAddedFoods + Number(action.newFood.calories)
+      };
 
-        default:
-            console.log("Hey we got to the default - Class");
-            return state
-    }
-}
-
+    default:
+      return state;
+  }
+};
+//===========================================================================================//
+//===========================================================================================//
 export default foodReducer;

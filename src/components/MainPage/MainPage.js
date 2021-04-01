@@ -5,7 +5,7 @@ import ExerciseCalories from "../../components/ExerciseCalories/ExerciseCalories
 import FoodCalories from "../FoodCalories/FoodCalories";
 
 const MainPage = (props) => {
-console.log(props);
+
 return (
     <div>
     <div>
@@ -13,29 +13,25 @@ return (
     </div>
 
     <div className="main-container">
-
-    {/* Exercise Component */}
-    <ExerciseCalories
+        {/* Exercise Component */}
+        <ExerciseCalories
         exerciseState={props.exercise}
         addExercise={props.addExercise}
         calories={props.calories}
         />
 
-    {/* Food Component */}
-    <div style={{ border: "1px solid black" }}>
+        {/* Food Component */}
+        <div style={{ border: "1px solid black" }}>
         <FoodCalories props={props} />
+        </div>
     </div>
-    </div>
-
-
     </div>
 );
 };
 
-
 const mapStateToProps = (state) => {
 return {
-    food: state.food_Reducer.food,
+    food: state.food_Reducer,
     exercise: state.exercise_Reducer.exercise,
     calories: state.exercise_Reducer.calories,
 };
@@ -43,7 +39,6 @@ return {
 
 const mapDispatchToProps = (dispatch) => {
 return {
-    // addFood: () => dispatch({type:"ADD_NEW_FOOD", newFood: {name: "Cheddaer CHd", id: "ps1234", calories: "245"}}),
     addFood: (newMealName, newCalories) =>
     dispatch({
         type: "ADD_NEW_FOOD",
