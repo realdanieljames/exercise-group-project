@@ -15,13 +15,8 @@ return (
 
     <div className="main-container">
         {/* Exercise Component */}
-        <ExerciseCalories
-        exerciseState={props.exercise}
-        addExercise={props.addExercise}
-        calories={props.calories}
-        editToggle={props.editToggle}
-        editExercise={props.editExercise}
-        submitEditExerciseValue={props.submitEditExerciseValue}
+        <ExerciseCalories props={props}
+        
 
         />
 
