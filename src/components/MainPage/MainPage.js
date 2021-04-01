@@ -9,26 +9,29 @@ console.log(props);
 return (
     <div>
     <div>
-        <p>Main Page</p>
+        <h1>Main Page</h1>
     </div>
+
+    <div className="main-container">
 
     {/* Exercise Component */}
     <ExerciseCalories
         exerciseState={props.exercise}
         addExercise={props.addExercise}
         calories={props.calories}
-    />
+        />
 
     {/* Food Component */}
     <div style={{ border: "1px solid black" }}>
         <FoodCalories props={props} />
     </div>
     </div>
+
+
+    </div>
 );
 };
-//     </div>
-// )
-// }
+
 
 const mapStateToProps = (state) => {
 return {

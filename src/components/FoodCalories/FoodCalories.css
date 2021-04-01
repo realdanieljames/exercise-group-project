@@ -1,10 +1,10 @@
-.meal-object {
+.meal-container {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 50% 50%;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 }
 
 .meal {
-    /* border: 2px solid black; */
+    border: 2px solid black;
 }
