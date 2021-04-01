@@ -7,8 +7,6 @@ const FoodCalories = (props) => {
 const foodRef = useRef();
 const foodCalorieRef = useRef();
 
-
-
 //===========================================================================================//
 //===========================================================================================//
 
@@ -29,18 +27,19 @@ return (
         Add Meal
         </button>
     </div>
-    <div>Total Calorie Intake:{props.props.food.totalCaloriesFromAddedFoods}</div>
+    <h3>
+        Total Calorie Intake:{props.props.food.totalCaloriesFromAddedFoods}
+    </h3>
 
     <div className="meal-container">
         {props.props.food.food.map((value) => {
-
-
-
         return (
             <div className="meal">
-            <p> Meal: {value.mealName}</p>
-        
-            <p> Total Calories: { value.calories  }</p>
+            <p> Meal: <br/>{value.mealName}</p>
+            <button>edit</button>
+
+            <p> Total Calories: <br/>{value.calories}</p>
+            <button onClick={()=>console.log('rer')}>edit</button>
             </div>
         );
         })}
