@@ -24,10 +24,11 @@ const ExerciseCalories = (props) => {
                         <p>{item.name}</p>
                         <p>{item.calories}</p>
                         <button onClick={() => props.editExercise(item.id)} >Edit</button>
-             </div>: <div>
-                 <input ref={tempExcercise}/>
-                 <input ref={tempCalories}/>
-                 <button >Submit</button>
+             </div>: 
+             <div>
+                 <input placeholder="Change name here" ref={tempExcercise}/>
+                 <input placeholder="Change calories here" ref={tempCalories}/>
+                 <button onClick={() => props.submitEditExerciseValue(tempExcercise.current.value, tempCalories.current.value, item.id)} >Submit</button>
                  </div>}
 
 
