@@ -34,7 +34,7 @@ return {
     food: state.food_Reducer,
     exercise: state.exercise_Reducer.exercise,
     calories: state.exercise_Reducer.calories,
-    editToggle: state.exercise_Reducer.editToggle,
+    
 };
 };
 

@@ -3,7 +3,7 @@
 const initialState = {
     exercise: [],
     calories: 0,
-    editToggle: false
+  
 
 }
 
