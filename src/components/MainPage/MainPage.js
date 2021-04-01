@@ -22,6 +22,8 @@ return (
         calories={props.calories}
         editToggle={props.editToggle}
         editExercise={props.editExercise}
+        submitEditExerciseValue={props.submitEditExerciseValue}
+
         />
 
     {/* Food Component */}
@@ -57,12 +59,13 @@ return {
     dispatch({
         type: "ADD_NEW_EXERCISE",
         exercise: {
-        id: 1,
+        id: uuidv4(),
         name: exerciseRef.current.value,
         calories: exerciseCalorieRef.current.value,
         },
     }),
-    editExercise:(targetID) => dispatch({type: "EDIT_EXERCISE", targetID: targetID})
+    editExercise:(targetID) => dispatch({type: "EDIT_EXERCISE", targetID: targetID}),
+    submitEditExerciseValue: (newExercise, newCalories, targetID) => dispatch({type:"SUBMIT_EDIT_CHANGES", newExercise: newExercise, newCalories: newCalories, targetID:targetID})
 
 };
 };
