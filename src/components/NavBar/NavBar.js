@@ -19,7 +19,7 @@ const NavBar = (props) => {
  
 
     return (
-        <div>
+        <div className="alignment" >
             {decoded.email}
             <p className='logout' onClick={goToMainPage} > Logout</p>
             

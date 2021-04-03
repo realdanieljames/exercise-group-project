@@ -2,3 +2,8 @@
     
     cursor: pointer;
 }
+
+.alignment{
+    text-align: right;
+    margin-right: 10%;
+}
