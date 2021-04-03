@@ -46,7 +46,7 @@ return (
                     {" "}
                     Meal: <br />
                 </p>
-                <input defaultValue={value.mealName} ref={editMealNameRef}/>
+                <input defaultValue={value.mealName} placeholder="" ref={editMealNameRef}/>
                 </div>
             ) : (
                 <p>
