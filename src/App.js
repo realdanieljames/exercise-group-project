@@ -16,6 +16,7 @@ function App() {
         <Route exact path="/exercise" component={ExerciseCalories} />
         <Route exact path="/food" component={FoodCalories} />
         <Route exact path="/register" component={Register} />
+        
 
       </Router>
     </div>

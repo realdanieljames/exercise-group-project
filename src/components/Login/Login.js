@@ -43,7 +43,7 @@ const Login = (props) => {
 
             console.log(success.data.token);
             window.localStorage.setItem("jwtToken", success.data.token)
-            console.log(window.localStorage);
+            props.history.push('/main-page')
         } catch (error) {
 
             console.log(error);

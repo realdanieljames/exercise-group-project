@@ -4,13 +4,14 @@ import "./MainPage.css";
 import ExerciseCalories from "../../components/ExerciseCalories/ExerciseCalories";
 import FoodCalories from "../FoodCalories/FoodCalories";
 import { v4 as uuidv4 } from 'uuid'
+import NavBar from '../NavBar/NavBar'
 
 const MainPage = (props) => {
 
 return (
     <div>
     <div>
-        <h1>Main Page</h1>
+        <NavBar />
     </div>
 
     <div className="main-container">
