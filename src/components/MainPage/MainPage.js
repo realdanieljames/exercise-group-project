@@ -4,24 +4,20 @@ import "./MainPage.css";
 import ExerciseCalories from "../../components/ExerciseCalories/ExerciseCalories";
 import FoodCalories from "../FoodCalories/FoodCalories";
 import { v4 as uuidv4 } from 'uuid'
+import NavBar from '../NavBar/NavBar'
 
 const MainPage = (props) => {
 
 return (
     <div>
     <div>
-        <h1>Main Page</h1>
+        <NavBar />
     </div>
 
     <div className="main-container">
         {/* Exercise Component */}
-        <ExerciseCalories
-        exerciseState={props.exercise}
-        addExercise={props.addExercise}
-        calories={props.calories}
-        editToggle={props.editToggle}
-        editExercise={props.editExercise}
-        submitEditExerciseValue={props.submitEditExerciseValue}
+        <ExerciseCalories props={props}
+        
 
         />
 
@@ -39,7 +35,7 @@ return {
     food: state.food_Reducer,
     exercise: state.exercise_Reducer.exercise,
     calories: state.exercise_Reducer.calories,
-    editToggle: state.exercise_Reducer.editToggle,
+    
 };
 };
 

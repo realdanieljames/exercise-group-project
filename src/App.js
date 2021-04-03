@@ -10,11 +10,13 @@ function App() {
   return (
     <div className="App">
       <Router>
+
         <Route exact path="/" component={Login} />
         <Route exact path="/main-page" component={MainPage} />
         <Route exact path="/exercise" component={ExerciseCalories} />
         <Route exact path="/food" component={FoodCalories} />
         <Route exact path="/register" component={Register} />
+        
 
       </Router>
     </div>
