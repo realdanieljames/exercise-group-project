@@ -1,10 +1,11 @@
 import React, {createRef, useRef, useState} from 'react'
 import {connect} from 'react-redux'
 import {v4 as uuidv4} from 'uuid'
-import './ExerciseCalories'
+import './ExerciseCalories.css'
 
 
 const ExerciseCalories = (props) => {
+    
     
      
     const exerciseRef = createRef()
@@ -27,6 +28,8 @@ const ExerciseCalories = (props) => {
             setNumberError(false)
             
             props.addExercise(caloriesRef, exerciseRef)
+            caloriesRef.current.value = ""
+            exerciseRef.current.value =""
         }
     }
  
@@ -38,9 +41,9 @@ const ExerciseCalories = (props) => {
         {numberError? <div>Please enter a number</div>: null}
         <button onClick={numberCheck} >Add Exercise</button>
         <p>Total Burned Calories: {props.calories}</p>
-        
-        {props.exercise.map((item, i) => {
-         return   <div key={i+1}>
+        <div className='exercise-container'>
+             {props.exercise.map((item, i) => {
+             return   <div key={i+1}>
 
             {!item.editToggle ? <div>
                         <h2>Exercise {i + 1}</h2>
@@ -54,12 +57,9 @@ const ExerciseCalories = (props) => {
                  <input placeholder="Change calories here" ref={tempCalories}/>
                  <button onClick={() => props.submitEditExerciseValue(tempExcercise.current.value, tempCalories.current.value, item.id)} >Submit</button>
                  </div>}
-
-
-
              </div>
-        
-        })}
+           })}
+              </div>
         </div>
        
     )
