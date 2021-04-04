@@ -1,4 +1,4 @@
-import React, {createRef, useRef} from 'react'
+import React, {createRef, useRef, useState} from 'react'
 import {connect} from 'react-redux'
 import {v4 as uuidv4} from 'uuid'
 import './ExerciseCalories'
@@ -12,13 +12,31 @@ const ExerciseCalories = (props) => {
 
     const tempExcercise = createRef()
     const tempCalories = createRef()
+
+    const [numberError, setNumberError] = useState(false)
+    
+    const numberCheck = () => {
+            
+     
+
+
+        if( isNaN((Number(caloriesRef.current.value) * 1))){
+            setNumberError(true)
+            return
+        }else {
+            setNumberError(false)
+            
+            props.addExercise(caloriesRef, exerciseRef)
+        }
+    }
  
     return (
         <div className="exercise-object">
             <h1>Add Exercises</h1>
           <input placeholder="Type Exercise Here" ref={exerciseRef} />
-        <input placeholder="Type Calories Here" ref={caloriesRef} />
-        <button onClick={() => props.addExercise(caloriesRef, exerciseRef)} >Add Exercise</button>
+        <input  placeholder="Type Calories Here" ref={caloriesRef} />
+        {numberError? <div>Please enter a number</div>: null}
+        <button onClick={numberCheck} >Add Exercise</button>
         <p>Total Burned Calories: {props.calories}</p>
         
         {props.exercise.map((item, i) => {
