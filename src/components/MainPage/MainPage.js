@@ -5,6 +5,9 @@ import ExerciseCalories from "../../components/ExerciseCalories/ExerciseCalories
 import FoodCalories from "../FoodCalories/FoodCalories";
 import { v4 as uuidv4 } from 'uuid'
 import NavBar from '../NavBar/NavBar'
+import { combineReducers } from "redux";
+import CombinedComponent from '../CombinedComponent/CombinedComponent'
+
 
 const MainPage = (props) => {
 
@@ -12,6 +15,10 @@ return (
     <div>
     <div>
         <NavBar />
+    </div>
+
+    <div>
+        <CombinedComponent props={props}/>
     </div>
 
     <div className="main-container">

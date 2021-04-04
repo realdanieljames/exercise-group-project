@@ -9,13 +9,14 @@ const ExerciseCalories = (props) => {
 
     const tempExcercise = createRef()
     const tempCalories = createRef()
-   console.log(props); 
+ 
     return (
         <div className="exercise-object">
+            <h1>Add Exercises</h1>
           <input placeholder="Type Exercise Here" ref={exerciseRef} />
         <input placeholder="Type Calories Here" ref={caloriesRef} />
         <button onClick={() => props.props.addExercise(caloriesRef, exerciseRef)} >Add Exercise</button>
-        <p>Total Calories: {props.props.calories}</p>
+        <p>Total Burned Calories: {props.props.calories}</p>
         
         {props.props.exercise.map((item, i) => {
          return   <div key={i+1}>
