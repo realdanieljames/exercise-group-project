@@ -29,6 +29,7 @@ const ExerciseCalories = (props) => {
                         <p>{item.name}</p>
                         <p>{item.calories}</p>
                         <button onClick={() => props.editExercise(item.id)} >Edit</button>
+                        <button onClick={() => props.deleteExercise(item.id, item.calories) }>Delete</button>
              </div>: 
              <div>
                  <input placeholder="Change name here" ref={tempExcercise}/>
@@ -57,16 +58,15 @@ const mapStateToProps = (state) => {
     const mapDispatchToProps = (dispatch) => {
     return {
         addExercise: (exerciseCalorieRef, exerciseRef) =>
-        dispatch({
-            type: "ADD_NEW_EXERCISE",
-            exercise: {
+        dispatch({type: "ADD_NEW_EXERCISE", exercise: {
             id: uuidv4(),
             name: exerciseRef.current.value,
             calories: exerciseCalorieRef.current.value,
             },
         }),
         editExercise:(targetID) => dispatch({type: "EDIT_EXERCISE", targetID: targetID}),
-        submitEditExerciseValue: (newExercise, newCalories, targetID) => dispatch({type:"SUBMIT_EDIT_CHANGES", newExercise: newExercise, newCalories: newCalories, targetID:targetID})
+        submitEditExerciseValue: (newExercise, newCalories, targetID) => dispatch({type:"SUBMIT_EDIT_CHANGES", newExercise: newExercise, newCalories: newCalories, targetID:targetID}),
+        deleteExercise: (targetID, calories) => dispatch({type: "DELETE_EXERCISE", targetID: targetID, calories: calories})
     
     };
     };
