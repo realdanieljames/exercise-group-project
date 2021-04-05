@@ -1,4 +1,3 @@
-// import { connect } from "react-redux";
 import "./MainPage.css";
 import ExerciseCalories from "../../components/ExerciseCalories/ExerciseCalories";
 import FoodCalories from "../FoodCalories/FoodCalories";
@@ -24,7 +23,7 @@ return (
         <ExerciseCalories />
 
         {/* Food Component */}
-        <FoodCalories props={props} />
+        <FoodCalories />
     </div>
     </div>
 );
