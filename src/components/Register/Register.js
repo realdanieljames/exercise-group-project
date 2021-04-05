@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom'
 import { connect } from "react-redux";
 import validator from 'validator'
 import axios from 'axios'
+import "./Register.css"
 
 const Register = (props) => {
 
@@ -24,6 +25,8 @@ const handleSubmit = async () => {
     }
 
     try {
+        console.log('hello');
+        
         let success = await axios.post("http://localhost:3001/api/users/register", {
             email: emailRef.current.value,
             password: passwordRef.current.value,
@@ -49,7 +52,7 @@ const handleSubmit = async () => {
         <input type='password' ref={passwordRef} placeholder="Password" /><br></br>
         <button onClick={handleSubmit} >Submit</button>
         {emailError ? <div>Please input a correct email.</div>: null}
-        <p>Already Registered? Login <span onClick={switchToLoginPage} className='register-click'>here</span>.</p>
+        <p>Already Registered? Login <span style={{color: "blue"}} onClick={switchToLoginPage} className='register-click'>here</span>.</p>
     </div>
     )
 }
