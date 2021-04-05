@@ -2,7 +2,11 @@ import React, {createRef, useRef, useState} from 'react'
 import {connect} from 'react-redux'
 import {v4 as uuidv4} from 'uuid'
 import './ExerciseCalories.css'
-
+import Button from '@material-ui/core/Button'
+import Input from '@material-ui/core/Input';
+import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 const ExerciseCalories = (props) => {
     
@@ -34,23 +38,25 @@ const ExerciseCalories = (props) => {
     }
  
     return (
-        <div className="exercise-object">
-            <h1>Add Exercises</h1>
-          <input placeholder="Type Exercise Here" ref={exerciseRef} />
-        <input  placeholder="Type Calories Here" ref={caloriesRef} />
+        <div style={{backgroundColor: "#595758", color: 'white',
+        borderRadius: "20px"}} className="exercise-object">
+            <h1  >Add Exercises</h1>
+          <Input id="filled-basic" size="small" style={{color: 'white',}} placeholder="Exercises"inputProps={{ 'aria-label': 'description' }} variant="filled" inputRef={exerciseRef} />
+          <Input id="filled-basic" size="small" style={{color: 'white',}} placeholder="Calories"inputProps={{ 'aria-label': 'description' }} variant="filled"  inputRef={caloriesRef}  />
+        
         {numberError? <div>Please enter a number</div>: null}
-        <button onClick={numberCheck} >Add Exercise</button>
+        <Button variant="contained" size="small" color="primary" onClick={numberCheck} endIcon={<SaveIcon />}>Save</Button>
         <p>Total Burned Calories: {props.calories}</p>
         <div className='exercise-container'>
              {props.exercise.map((item, i) => {
              return   <div key={i+1}>
 
             {!item.editToggle ? <div>
-                        <h2>Exercise {i + 1}</h2>
-                        <p>{item.name}</p>
-                        <p>{item.calories}</p>
-                        <button onClick={() => props.editExercise(item.id)} >Edit</button>
-                        <button onClick={() => props.deleteExercise(item.id, item.calories) }>Delete</button>
+                        
+                        <h2>{item.name}</h2>
+                        <h3>{item.calories}</h3>
+                        <Button variant="contained" size="small" color="primary" endIcon={<EditIcon /> } onClick={() => props.editExercise(item.id)} ></Button>
+                        <Button variant="contained" size="small" color="secondary" endIcon={<DeleteIcon />}  onClick={() => props.deleteExercise(item.id, item.calories) }></Button>
              </div>: 
              <div>
                  <input placeholder="Change name here" ref={tempExcercise}/>
