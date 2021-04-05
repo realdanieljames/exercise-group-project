@@ -2,6 +2,9 @@ import React, {Component, createRef, useState, useEffect} from 'react'
 import {withRouter} from 'react-router-dom'
 import { connect } from "react-redux";
 import axios from 'axios'
+import Button from '@material-ui/core/Button'
+import AppBar from '@material-ui/core/AppBar';
+import Input from '@material-ui/core/Input'
 
 import "./Login.css"
 const Login = (props) => {
@@ -55,12 +58,14 @@ const Login = (props) => {
 console.log(props);
     return (
         <div>
-
-            <p>Login Page</p>
-            <input onChange={() => setErrorMessage(false)} type='email'ref={emailRef} placeholder="Email"/> <br></br>
-            <input onChange={() => setErrorMessage(false)} type='Password' ref={passwordRef} placeholder="Password" /><br></br>
+            <AppBar>Login</AppBar>
+            <div> . </div>
+            <Input onChange={() => setErrorMessage(false)} type='email'inputRef={emailRef} placeholder="Email" ></Input>
+            <Input onChange={() => setErrorMessage(false)} type='Password' inputRef={passwordRef} placeholder="Password" ></Input>
+            <Button></Button>
            {errorMessage? <div>Incorrect information</div>: null}
             <button onClick={handleSubmit}>Submit</button>
+            
             <p>Not Registered? Sign up <span onClick={switchToRegisterPage} className='register-click'>here</span></p>
         </div>
     )
