@@ -24,9 +24,8 @@ return (
         <ExerciseCalories />
 
         {/* Food Component */}
-        <div >
+
         <FoodCalories props={props} />
-        </div>
     </div>
     </div>
 );
