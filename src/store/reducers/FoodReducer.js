@@ -16,7 +16,7 @@ switch (action.type) {
         state.totalCaloriesFromAddedFoods + Number(action.newFood.calories),
     };
 
-    case "EDIT_MEAL_NAME":
+    case "EDIT_MEAL_AND_CALORIES":
         console.log('edrefeit')
     default:
     return state;

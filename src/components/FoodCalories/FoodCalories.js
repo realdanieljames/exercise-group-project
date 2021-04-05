@@ -1,4 +1,6 @@
 import React, { useRef, useState } from "react";
+import { connect } from "react-redux";
+import { v4 as uuidv4 } from 'uuid'
 import Button from "@material-ui/core/Button";
 import Input from '@material-ui/core/Input';
 import SaveIcon from '@material-ui/icons/Save';
@@ -8,7 +10,9 @@ import "./FoodCalories.css";
 
 //===========================================================================================//
 //===========================================================================================//
+
 const FoodCalories = (props) => {
+    console.log(props)
 const addMealRef = useRef();
 const addMealCaloriesRef = useRef();
 
@@ -31,7 +35,7 @@ return (
 
 
         <Button variant="contained" size="small" color="primary" onClick={() =>
-            props.props.addMeal(
+            props.addMeal(
             addMealRef.current.value,
             addMealCaloriesRef.current.value,
 
@@ -43,12 +47,12 @@ return (
 
       
 
-    <h3>
-        Total Calorie Intake:{props.props.food.totalCaloriesFromAddedFoods}
-    </h3>
+    <p>
+        Total Calorie Intake:{props.food.totalCaloriesFromAddedFoods}
+    </p>
     {/*  //===========================================================================================//*/}
     <div className="meal-container">
-        {props.props.food.food.map((value) => {
+        {props.food.food.map((value) => {
         return (
             <div className="meal">
 
@@ -103,7 +107,30 @@ return (
     </div>
 );
 };
+
+const mapStateToProps = (state) => {
+    return {
+        food: state.food_Reducer,
+    };
+    };
+    
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addMeal: (newMealName, newCalories) =>
+        dispatch({
+            type: "ADD_NEW_FOOD",
+            newFood: { mealName: newMealName, id: uuidv4(), calories: newCalories },
+        }),
+        editMeal:(targetID, newMealName, newCalories)=>dispatch({
+            type: "EDIT_MEAL_NAME",
+            editedMeal: {targetId: targetID, mealName:newMealName, calories: newCalories}
+        }),
+    };
+    };
 //===========================================================================================//
 //===========================================================================================//
 
-export default FoodCalories;
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(FoodCalories);

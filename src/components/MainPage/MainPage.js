@@ -1,8 +1,8 @@
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import "./MainPage.css";
 import ExerciseCalories from "../../components/ExerciseCalories/ExerciseCalories";
 import FoodCalories from "../FoodCalories/FoodCalories";
-import { v4 as uuidv4 } from 'uuid'
+
 import NavBar from '../NavBar/NavBar'
 import CombinedComponent from '../CombinedComponent/CombinedComponent'
 
@@ -24,31 +24,11 @@ return (
         <ExerciseCalories />
 
         {/* Food Component */}
-
         <FoodCalories props={props} />
     </div>
     </div>
 );
 };
 
-const mapStateToProps = (state) => {
-return {
-    food: state.food_Reducer,
-};
-};
 
-const mapDispatchToProps = (dispatch) => {
-return {
-    addMeal: (newMealName, newCalories) =>
-    dispatch({
-        type: "ADD_NEW_FOOD",
-        newFood: { mealName: newMealName, id: uuidv4(), calories: newCalories },
-    }),
-    editMeal:(targetID, newMealName, newCalories)=>dispatch({
-        type: "EDIT_MEAL_NAME",
-        editedMeal: {targetId: targetID, mealName:newMealName, calories: newCalories}
-    }),
-};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default MainPage;

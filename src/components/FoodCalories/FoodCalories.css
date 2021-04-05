@@ -10,12 +10,11 @@
     margin-bottom: 25px;
 } */
 
-
-/* .meal {
-    display: grid;
-    grid-template-columns: 70% 30%;
-    margin: auto;
-    width: auto;
-    border: 2px solid white;
-    padding: auto;
-} */
+.meal {
+    /* display: grid; */
+    /* grid-template-columns: 70% 30%; */
+    margin-left: 5px;
+    /* width: auto; */
+    border: 1px solid white;
+    /* padding: auto; */
+}
