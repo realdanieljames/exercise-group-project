@@ -73,7 +73,7 @@ return (
                 showEditFieldMeal
                     ? setShowEditFieldMeal(false)
                     : setShowEditFieldMeal(true);
-                props.props.editMeal();
+                props.editMeal();
                 }}
             ></Button>
             <Button variant="contained" size="small" color="secondary" endIcon={<DeleteIcon />}  onClick={() => console.log('delete')}></Button>
@@ -107,13 +107,16 @@ return (
     </div>
 );
 };
-
+//===========================================================================================//
+//===========================================================================================//
 const mapStateToProps = (state) => {
     return {
         food: state.food_Reducer,
     };
     };
     
+
+//===========================================================================================//
 
 const mapDispatchToProps = (dispatch) => {
     return {
