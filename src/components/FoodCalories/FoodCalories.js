@@ -1,4 +1,9 @@
 import React, { useRef, useState } from "react";
+import Button from "@material-ui/core/Button";
+import Input from '@material-ui/core/Input';
+import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from "@material-ui/icons/Edit";
 import "./FoodCalories.css";
 
 //===========================================================================================//
@@ -10,69 +15,87 @@ const addMealCaloriesRef = useRef();
 const editMealNameRef = useRef();
 const editMealCalorieRef = useRef();
 
-const [showEditField, setShowEditField] = useState(false);
+const [showEditFieldMeal, setShowEditFieldMeal] = useState(false);
 //===========================================================================================//
 //===========================================================================================//
 
 return (
-    <div>
+    <div style={{backgroundColor: "#595758", color: 'white',
+    borderRadius: "20px"}}>
     <h1>Add Meals</h1>
-    <div className="add-meal-input-fields">
-        <input placeholder="Add Food" ref={addMealRef} />
-        <input placeholder="Add Calories Amount" ref={addMealCaloriesRef} />
-        <button
-        onClick={() =>
+
+
+    <Input id="filled-basic" size="small" style={{color: 'white',}} placeholder=" Meal"inputProps={{ 'aria-label': 'description' }} variant="filled" inputRef={addMealRef} />
+    <Input id="filled-basic" size="small" style={{color: 'white',}} placeholder=" Calories"inputProps={{ 'aria-label': 'description' }} variant="filled"  inputRef={addMealCaloriesRef}  />
+
+
+
+        <Button variant="contained" size="small" color="primary" onClick={() =>
             props.props.addMeal(
             addMealRef.current.value,
-            addMealCaloriesRef.current.value
+            addMealCaloriesRef.current.value,
+
+            addMealRef.current.value="",
+            addMealCaloriesRef.current.value=""
             )
-        }
-        >
-        Add Meal
-        </button>
-    </div>
+        } endIcon={<SaveIcon />}>Save</Button>
+
+
+      
+
     <h3>
         Total Calorie Intake:{props.props.food.totalCaloriesFromAddedFoods}
-
     </h3>
-{/*  //===========================================================================================//*/}
+    {/*  //===========================================================================================//*/}
     <div className="meal-container">
         {props.props.food.food.map((value) => {
         return (
             <div className="meal">
-            {showEditField ? (
-                <div>
-                <p>
-                    {" "}
-                    Meal: <br />
-                </p>
-                <input defaultValue={value.mealName} placeholder="" ref={editMealNameRef}/>
-                </div>
-            ) : (
-                <p>
-                {" "}
-                Meal: <br />
-                {value.mealName}
-                </p>
-            )}
 
-            <button
+
+
+
+            {!showEditFieldMeal ? (
+                <div>
+                <h2> {value.mealName}</h2>
+                <h3>{value.calories}</h3>
+
+                <Button
+                variant="contained"
+                size="small"
+                color="primary"
+                endIcon={<EditIcon />}
                 onClick={() => {
-                setShowEditField(true);
+                showEditFieldMeal
+                    ? setShowEditFieldMeal(false)
+                    : setShowEditFieldMeal(true);
                 props.props.editMeal();
                 }}
-            >
-                {showEditField ? "submit" : "edit"}
-                {/* edit */}
-            </button>
-{/*  //===========================================================================================//*/}
-            <p>
-                {" "}
-                Total Calories: <br />
-                {value.calories}
-            </p>
-            <input></input>
-            <button onClick={() => console.log("rere")}>edit</button>
+            ></Button>
+            <Button variant="contained" size="small" color="secondary" endIcon={<DeleteIcon />}  onClick={() => console.log('delete')}></Button>
+
+                </div>
+            ) : (
+                <div>
+                    Meal Name:
+                <input
+                
+                defaultValue={value.mealName}
+                placeholder={"Enter meal name"}
+                ref={editMealNameRef}
+                />
+                    Calories:
+                <input
+                defaultValue={value.calories}
+                placeholder={"Enter calorie amount"}
+                ref={editMealCalorieRef}
+                />
+                <button>Submit</button>
+                </div>
+
+            )}
+
+
             </div>
         );
         })}

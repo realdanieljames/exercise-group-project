@@ -24,7 +24,7 @@ return (
         <ExerciseCalories />
 
         {/* Food Component */}
-        <div style={{ borderLeft: "1px solid black" }}>
+        <div >
         <FoodCalories props={props} />
         </div>
     </div>
