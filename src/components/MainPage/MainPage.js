@@ -10,7 +10,7 @@ import CombinedComponent from '../CombinedComponent/CombinedComponent'
 const MainPage = (props) => {
 
 return (
-    <div>
+    <div style={{backgroundColor: "#c7d6d5"}}>
     <div>
         <NavBar />
     </div>
