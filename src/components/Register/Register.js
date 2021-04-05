@@ -54,23 +54,10 @@ const handleSubmit = async () => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        // food: state.food_Reducer.food,
-        // exercise: state.exercise_Reducer.exercise,
-        // calories: state.exercise_Reducer.calories
-        
-    }
-}
 
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Register))
+export default withRouter(Register)
 
 
     

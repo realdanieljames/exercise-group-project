@@ -46,16 +46,24 @@ const exerciseReducer = (state=initialState, action) => {
                     return item
                 }
             })
-
-
-
-
-            
             return {
                 ...state,
                 exercise: editedExercises,
                 calories: totalCalories
             }
+            case "DELETE_EXERCISE":
+                let toDeleteExercise = [...state.exercise].filter((item) => {
+                    
+                    return item.id !== action.targetID
+
+                })
+                
+                return {
+                    ...state,
+                    exercise: toDeleteExercise,
+                    calories: state.calories - Number(action.calories)
+                    
+                }
         default : 
         return state
     }
