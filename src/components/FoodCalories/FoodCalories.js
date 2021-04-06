@@ -45,7 +45,6 @@ return (
         } endIcon={<SaveIcon />}>Save</Button>
 
 
-      
 
     <p>
         Total Calorie Intake:{props.food.totalCaloriesFromAddedFoods}
