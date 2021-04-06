@@ -1,15 +1,11 @@
-import React, {Component, createRef, useState, useEffect} from 'react'
+import React, { createRef, useState, useEffect} from 'react'
 import {withRouter} from 'react-router-dom'
-import { connect } from "react-redux";
 import axios from 'axios'
-import AppBar from '@material-ui/core/AppBar';
-import Input from '@material-ui/core/Input'
+
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -22,12 +18,10 @@ import Container from '@material-ui/core/Container';
 function Copyright() {
     return (
       <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
         <Link color="inherit" href="https://material-ui.com/">
-          Your Website
         </Link>{' '}
         {new Date().getFullYear()}
-        {'.'}
+        {' Copyright © The Real Daniel James & A-Rod'}
       </Typography>
     );
   }
@@ -50,7 +44,9 @@ function Copyright() {
     submit: {
       margin: theme.spacing(3, 0, 2),
     },
-  }));
+  }))
+ 
+
   
 
 
@@ -71,7 +67,7 @@ const Login = (props) => {
         
 
         
-    },[])
+    })
     
     const classes = useStyles();
 
@@ -105,90 +101,71 @@ const Login = (props) => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form onSubmit={(e) => handleSubmit(e)} className={classes.form} noValidate>
-          <TextField
-            onChange={() => setErrorMessage(false)}
-            inputRef={emailRef}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            onChange={() => setErrorMessage(false)} 
-            inputRef={passwordRef}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-         
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
-          {errorMessage? <div>Incorrect information</div>: null}
-          <Grid container>
-            <Grid item xs>
-             
-            </Grid>
-            <Grid item>
-              <Link href="http://localhost:3000/register" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
+    <CssBaseline />
+    <div className={classes.paper}>
+      <Avatar className={classes.avatar}>
+        <LockOutlinedIcon />
+      </Avatar>
+      <Typography component="h1" variant="h5">
+        Calories Tracker
+      </Typography>
+      <form onSubmit={(e) => handleSubmit(e)} className={classes.form} noValidate>
+        <TextField
+          onChange={() => setErrorMessage(false)}
+          inputRef={emailRef}
+          variant="outlined"
+          margin="normal"
+          
+          fullWidth
+          id="email"
+          label="Email Address"
+          name="email"
+          autoComplete="email"
+        />
+        <TextField
+          onChange={() => setErrorMessage(false)} 
+          inputRef={passwordRef}
+          variant="outlined"
+          margin="normal"
+          
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+        />
+       
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+        >
+          Sign In
+        </Button>
+        {errorMessage? <div>Incorrect information</div>: null}
+        <Grid container>
+          <Grid item xs>
+           
           </Grid>
-        </form>
-      </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
-    </Container>
+          <Grid item>
+            <Link href="http://localhost:3000/register" variant="body2">
+              {"Don't have an account? Sign Up"}
+            </Link>
+          </Grid>
+        </Grid>
+      </form>
+    </div>
+    <Box mt={8}>
+      <Copyright />
+    </Box>
+  </Container>
   );
     
 }
 export default withRouter(Login)
-
-// console.log(props);
-//     return (
-//         <div>
-//             <AppBar>Calorie Tracker</AppBar>
-//             <div> . </div>
-//             <div> a </div>
-//             <Input   placeholder="Email" ></Input>
-//             <Input   placeholder="Password" ></Input>
-//             <Button variant="contained" color='primary' size='small' >Submit</Button>
-          
-            
-//             <p>Not Registered? Sign up <span onClick={switchToRegisterPage} className='register-click'>here</span></p>
-//         </div>
-//     )
-
-
-
 
 
 

@@ -1,4 +1,4 @@
-import React, {createRef, useRef, useState} from 'react'
+import React, {createRef,  useState} from 'react'
 import {connect} from 'react-redux'
 import {v4 as uuidv4} from 'uuid'
 import './ExerciseCalories.css'
