@@ -51,7 +51,7 @@ const ExerciseCalories = (props) => {
              {props.exercise.map((item, i) => {
              return   <div key={i+1}>
 
-            {!item.editToggle ? <div>
+            {!item.editToggle ? <div style={{backgroundColor: "#3f51b5", borderRadius: "20px"}} >
                         
                         <h2>{item.name}</h2>
                         <h3>{item.calories}</h3>

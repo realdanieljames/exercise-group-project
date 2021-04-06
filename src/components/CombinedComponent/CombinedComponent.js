@@ -8,7 +8,7 @@ const CombinedComponent = (props) => {
     console.log(props);
     return (
         <div>
-            <h1>Exercise and Food Summary</h1>
+            
            <p>Burned Calories: {burnedCalories}</p> 
            <p>Earned Calories: {earnedCalories}</p> 
            <p>Total Calories: {earnedCalories - burnedCalories} </p>
