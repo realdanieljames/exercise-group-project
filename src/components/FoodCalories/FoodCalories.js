@@ -60,7 +60,7 @@ return (
 
 
             {!showEditFieldMeal ? (
-                <div>
+                <div style={{backgroundColor: "#3f51b5", borderRadius: "20px"}}>
                 <h2> {value.mealName}</h2>
                 <h3>{value.calories}</h3>
 
