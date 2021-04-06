@@ -5,7 +5,7 @@ const CombinedComponent = (props) => {
     let burnedCalories = props.calories
     let earnedCalories = props.food.totalCaloriesFromAddedFoods
 
-    console.log(props);
+    // console.log(props);
     return (
         <div>
             
