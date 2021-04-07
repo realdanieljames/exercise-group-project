@@ -62,6 +62,13 @@ const exerciseReducer = (state = initialState, action) => {
                 calories: state.calories - Number(action.calories)
 
             }
+        case "SHOW_DATA":
+            
+            return {
+                ...state,
+                exercise: action.exercises
+            }
+            
         default:
             return state
     }

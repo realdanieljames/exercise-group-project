@@ -75,7 +75,11 @@ console.log(action.targetID)
         totalCaloriesFromAddedFoods:
         state.totalCaloriesFromAddedFoods - Number(action.calories),
     };
-
+    case "SHOW_FOOD":
+        return {
+            ...state,
+            food: action.food
+        }
 //===========================================================================================//
     default:
     return state;

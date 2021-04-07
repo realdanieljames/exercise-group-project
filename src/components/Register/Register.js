@@ -70,10 +70,10 @@ const handleSubmit = async (e) => {
         console.log('hello');
         
         let success = await axios.post("http://localhost:3001/api/users/register", {
-            email: emailRef.current.value,
-            password: passwordRef.current.value,
-            username: userNameRef.current.value,
-        })
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+          username: userNameRef.current.value,
+      })
         console.log(success);
          if(success.status === 200){
              alert('Success, please proceed to login.')
